@@ -1,11 +1,11 @@
 # Mirror one S3 bucket to another S3 bucket.
 # tip @cobbzilla for his work at https://www.gittip.com/cobbzilla/
-FROM java:7-jre-alpine
+FROM openjdk:8-jre-alpine
 
-MAINTAINER Panagiotis Moustafellos <pmoust@gmail.com>
+MAINTAINER Jeeva
 
 RUN apk add --no-cache git bash ca-certificates && \
-    git clone https://github.com/cobbzilla/s3s3mirror.git /opt/s3s3mirror && \
+    git clone --single-branch -b 2.1-stable https://github.com/jkailasam/s3s3mirror.git /opt/s3s3mirror && \
     apk del git && \
     rm -rf /opt/s3s3mirror/.git
 
